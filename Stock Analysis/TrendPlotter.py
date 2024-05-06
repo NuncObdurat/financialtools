@@ -95,16 +95,19 @@ def plot_trend_data(data_file, position, num_future_years=10, trading_days_per_y
     # Allow moving the average trendline by selecting a point on the plot
     def onclick(event):
         if event.inaxes == ax:
-            y_val = event.ydata
-            exponent = (np.log(y_val) - np.log(trendlines['average'][0])) / (len(col_data) - 1)
-            trendlines['average'] = [col_data.iloc[0]]
-            for i in range(1, len(x_extended)):
-                trendlines['average'].append(trendlines['average'][-1] * (1 + exponent))
-            ax.lines[2].set_ydata(trendlines['average'])
-            cagr['average'] = calculate_cagr(trendlines['average'][-1], col_data.iloc[-1], num_future_years)
-            cagr_text.set_text(f"Compounded Growth: {cagr['average']*100:.2f}%")
-            cagr_text.set_position((len(x_extended), trendlines['average'][-1]))
-            fig.canvas.draw()
+            x_val = event.xdata  # The x-coordinate of the click
+            y_val = event.ydata  # The y-coordinate of the click
+            if x_val is not None and y_val is not None:
+                # Calculate the exponent that would make the line pass through the clicked point
+                exponent = (np.log(y_val) - np.log(col_data.iloc[0])) / x_val
+                # Generate new values for the average trendline passing through the clicked point
+                trendlines['average'] = [col_data.iloc[0] * np.exp(exponent * i) for i in range(len(x_extended))]
+                ax.lines[2].set_ydata(trendlines['average'])  # Update the trendline in the plot
+                # Update the CAGR display
+                cagr['average'] = calculate_cagr(trendlines['average'][-1], col_data.iloc[0], len(col_data)/trading_days_per_year + num_future_years)
+                cagr_text.set_text(f"Compounded Growth: {cagr['average']*100:.2f}%")
+                cagr_text.set_position((len(x_extended)-1, trendlines['average'][-1]))
+                fig.canvas.draw()  # Refresh the plot with the new trendline
 
 
     # Connect the onclick function to the figure
