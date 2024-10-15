@@ -11,13 +11,14 @@ The output should look like the graph in this video: https://youtu.be/XZvwtC5Y3Q
 A sample csv file of MMM is included for reference, which was downloaded from Yahoo finance. Running the program will open a browse window to select the csv file. In addition, the end of the average trend line computes the 10 year compounded interest from the end of the source (csv) data to the end of the trend line.  In other words, this is the expected rate of return for the ten years of the extended trendline. 
 
 ![plot image](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/pointer.png)
-<img src="[https://your-image-url](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/pointer.png).type" width="100">
+
+<img src="[./images/your_image.png](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/pointer.png)" alt="Alt text" style="width:100;height:auto;">
+
 A pre-compiled binary (.exe) for Windows is available here (81MB): [https://drive.google.com/file/d/1-x8CYgkDjfoIGgZQ1nNAwcInXPZXedMN/view?usp=sharing](https://drive.google.com/file/d/10nrN0Bg48y6mCe6FpEPr2E2r4CRgYnKs/view?usp=sharing)
 
 Python instructions and dependencies are below the image. 
 
 ![plot image](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/MMM.png)
-
 
 
 The TrendPlotter.py file is a Python script that requires Python and the following dependencies:
