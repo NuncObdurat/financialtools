@@ -4,7 +4,7 @@ TrendPlotter.py is a Python program that takes in a csv file with stock data and
 
 A sample csv file of the S&P 500 index data is included for reference, which was downloaded from Yahoo finance. Running the program will open a browse window to select the csv file. In addition, the end of the average trend line computes the 10 year compounded interest from the end of the source (csv) data to the end of the trend line.  In other words, this is the expected rate of return for the ten years of the extended trendline. 
 
-![plot image](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/GSPCanalysis.png)
+![plot image](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/MMM.png)
 
 This project requires Python and the following dependencies:
 
