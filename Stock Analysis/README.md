@@ -12,7 +12,7 @@ A sample csv file of MMM is included for reference, which was downloaded from Ya
 
 ![plot image](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/pointer.png)
 
-<img src="[./images/your_image.png](https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/pointer.png)" alt="Alt text" style="width:100;height:auto;">
+<img src="(https://github.com/NuncObdurat/financialtools/blob/main/Stock%20Analysis/pointer.png)" alt="Alt text" style="width:100;height:auto;">
 
 A pre-compiled binary (.exe) for Windows is available here (81MB): [https://drive.google.com/file/d/1-x8CYgkDjfoIGgZQ1nNAwcInXPZXedMN/view?usp=sharing](https://drive.google.com/file/d/10nrN0Bg48y6mCe6FpEPr2E2r4CRgYnKs/view?usp=sharing)
 
