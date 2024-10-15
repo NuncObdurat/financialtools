@@ -25,7 +25,7 @@ The TrendPlotter.py file is a Python script that requires Python and the followi
 - math
 - tkinter
 
-To install dependencies, you can use `pip` command. E.g.:
+To install dependencies, you can use the `pip` command. E.g.:
 
 - pip install pandas
 - pip install numpy
