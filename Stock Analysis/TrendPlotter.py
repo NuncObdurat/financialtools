@@ -52,7 +52,7 @@ def plot_trend_data(data_file, position, num_future_years=10, trading_days_per_y
     # Create a new figure and plot the curves
     fig, ax = plt.subplots()
     cagr['average'] = calculate_cagr(trendlines['average'][-1], col_data.iloc[-1], num_future_years)
-    cagr_text = ax.text(len(x_extended)-1, trendlines['average'][-1], f"Compounded Growth: {cagr['average']*100:.2f}%", color='blue', fontsize=9, ha='right', va='bottom')
+    cagr_text = ax.text(len(x_extended)-1, trendlines['average'][-1], f"Compounded Growth: {cagr['average']*100:.2f}%", color='blue', fontsize=12, ha='right', va='bottom')
 
     colors = {'good': 'green', 'poor': 'red', 'average': 'blue'}
     for label, trendline in trendlines.items():
@@ -62,7 +62,7 @@ def plot_trend_data(data_file, position, num_future_years=10, trading_days_per_y
     file_title = os.path.splitext(os.path.basename(data_file))[0]
 
     # Plot the data
-    ax.plot(col_data, linewidth=.3, label=file_title, color='black')
+    ax.plot(col_data, linewidth=.5, label=file_title, color='black')
 
     # Add vertical lines for each year
     for x_val in np.arange(0, len(x_extended), 260):
@@ -71,13 +71,13 @@ def plot_trend_data(data_file, position, num_future_years=10, trading_days_per_y
     # Set x-axis label and tick properties
     ax.set_xlabel('Date')
     ax.set_xticks(np.arange(0, len(x_extended), 260))
-    ax.tick_params(axis='x', which='major', labelsize=0.67 * ax.xaxis.get_ticklabels()[0].get_size())
+    ax.tick_params(axis='x', which='major', labelsize=1.0 * ax.xaxis.get_ticklabels()[0].get_size())
 
     # Add "click to adjust" text to the blue line
     last_data_x = len(col_data) - 1
     last_data_y = trendlines['average'][last_data_x]
     ax.annotate('click to adjust', xy=(last_data_x, last_data_y), xycoords='data',
-            fontsize=9, color='blue', ha='center', va='center', alpha=0.4)
+            fontsize=12, color='blue', ha='center', va='center', alpha=0.4)
 
     # Prepare x-axis labels with only the year
     date_ticks = date_col.iloc[np.arange(0, len(col_data), 260)].dt.year.astype(str)
@@ -104,7 +104,7 @@ def plot_trend_data(data_file, position, num_future_years=10, trading_days_per_y
                 trendlines['average'] = [col_data.iloc[0] * np.exp(exponent * i) for i in range(len(x_extended))]
                 ax.lines[2].set_ydata(trendlines['average'])  # Update the trendline in the plot
                 # Update the CAGR display
-                cagr['average'] = calculate_cagr(trendlines['average'][-1], col_data.iloc[0], len(col_data)/trading_days_per_year + num_future_years)
+                cagr['average'] = calculate_cagr(trendlines['average'][-1], col_data.iloc[-1], num_future_years)
                 cagr_text.set_text(f"Compounded Growth: {cagr['average']*100:.2f}%")
                 cagr_text.set_position((len(x_extended)-1, trendlines['average'][-1]))
                 fig.canvas.draw()  # Refresh the plot with the new trendline
